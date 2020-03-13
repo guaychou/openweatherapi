@@ -7,11 +7,6 @@ import (
 	"net/http"
 	)
 
-type City struct {
-	Id int `json:"id"`
-	Name string `json:"name"`
-}
-
 type Weather struct {
 	Id int `json:"id"`
 	Main string `json:"main"`
