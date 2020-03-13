@@ -39,6 +39,8 @@ type CurrentWeatherResponse struct {
 	Name string `json:"name"`
 }
 
+
+
 func GetWeather(kota string, api_key string) CurrentWeatherResponse{
 	var cwr CurrentWeatherResponse
 	url := "http://api.openweathermap.org/data/2.5/weather?q="+kota+"&appid="+api_key
@@ -56,6 +58,9 @@ func GetWeather(kota string, api_key string) CurrentWeatherResponse{
 		if jsonErr != nil {
 			log.Fatal(jsonErr)
 		}
+		cwr.Temp=convertToCelsius(cwr.Temp)
+		cwr.Temp_min=convertToCelsius(cwr.Temp_min)
+		cwr.Temp_max=convertToCelsius(cwr.Temp_max)
 		return cwr
 	}
 	return cwr
