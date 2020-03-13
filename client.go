@@ -37,6 +37,7 @@ type CurrentWeatherResponse struct {
 	Dt int `json:"dt"`
 	Id int `json:"id"`
 	Name string `json:"name"`
+	Cod int `json:"cod"`
 	Kelembapan string
 }
 
