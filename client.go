@@ -37,9 +37,8 @@ type CurrentWeatherResponse struct {
 	Dt int `json:"dt"`
 	Id int `json:"id"`
 	Name string `json:"name"`
+	Kelembapan string
 }
-
-
 
 func GetWeather(kota string, api_key string) CurrentWeatherResponse{
 	var cwr CurrentWeatherResponse
@@ -61,6 +60,7 @@ func GetWeather(kota string, api_key string) CurrentWeatherResponse{
 		cwr.Temp=convertToCelsius(cwr.Temp)
 		cwr.Temp_min=convertToCelsius(cwr.Temp_min)
 		cwr.Temp_max=convertToCelsius(cwr.Temp_max)
+		cwr.Kelembapan=humidityRange(cwr.Humidity)
 		return cwr
 	}
 	return cwr
