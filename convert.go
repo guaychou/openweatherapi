@@ -1,7 +1,6 @@
 package openweatherapi
 
 import(
-	"fmt"
 	"math"
 )
 func convertToCelsius(suhu float64) float64 {
